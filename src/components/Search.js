@@ -9,8 +9,8 @@ const Search = () => {
     const API_LINK = `http://www.omdbapi.com/?apikey=20bd7cf3&plot=full`; //api url
     // function to fetch data from api and store in movielist
     const searchMovie = (name) => {
-        const abortConst = new AbortController();
-        if (name === '') {
+        const abortConst = new AbortController();  //setting up abort for fetch fail
+        if (name === '') { //condition for when no search title is entered
             alert('Enter a movie');
         } else {
             fetch(`${API_LINK}&s=${name}`, {signal: abortConst.signal})
@@ -24,6 +24,7 @@ const Search = () => {
                 }
             })
             .then((data) => {
+                //updating movielist with search result from api
                 setMovielist(data.Search);
                 //setMovielist(data.Search);
             })
@@ -36,10 +37,11 @@ const Search = () => {
                 }
             });
         }
-        setTitle('');
+        setTitle(''); //setting title input field to empty after search
         return () => abortConst.abort();
     }
 
+    // setting up a fetch for first render
     useEffect(() =>{
         fetch(`${API_LINK}&s=avatar`)
         .then((res) => res.json())

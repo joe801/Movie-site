@@ -5,8 +5,9 @@ import { Link, useParams } from "react-router-dom";
 
 const MovieDetail = () => {
 
-    const [movie, setMovie] = useState({});
+    const [movie, setMovie] = useState({}); //creating an empty usestate object
     const {id} = useParams(); // getting the id value from the router path /blogs/:id @app.js
+    // fetchig data on page render with id value
     useEffect(() => {
         fetch(`http://www.omdbapi.com/?apikey=20bd7cf3&i=${id}`)
         .then((res) => res.json())
