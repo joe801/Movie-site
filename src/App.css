@@ -1,38 +1,249 @@
-.App {
-  text-align: center;
+*{
+    margin: 0;
+    padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+    background-color: #272532;
+    font-family: 'Signika Negative', sans-serif;
+    color: #EBE5E2;
+    max-width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container{
+    margin: 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* search component styling */
+
+.search{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 1rem auto;
+    border: 2px solid #373B69;
+    border-radius: 20px;
+    padding: 0.5rem;
 }
 
-.App-link {
-  color: #61dafb;
+.search input{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: #EBE5E2;
+    width: 90%;
+    padding: 0.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search img{
+    width: 20px;
+    height: 20px;
+    padding: 0.5rem;
+}
+
+.search img:hover{ 
+    outline: 1px solid #373B69;
+}
+/* search component styling end */
+
+/* single movie component styling */
+
+
+.movieContain{
+    width: 350px;
+    height: 30rem;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 2rem 0;
+}
+
+.movieContain img{
+    width: 100%;
+    height: 85%;
+}
+
+.movie .movieHeading{
+    margin-top: -0.2rem;
+    padding-top: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    height: 15%;
+    width: 100%;
+    background-color: #373B69;
+}
+
+.movie .movieHeading h3{
+    margin-left: 1rem;
+    width: 80%;
+}
+
+.movie .movieHeading p{
+    margin-right: 1rem;
+}
+/* single movie component styling end*/
+
+/* movies component styling */
+.movies{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    place-content: center;
+    text-decoration: none;
+}
+
+/* movie-details component styling */
+
+.movieDetail .back-icon{
+    padding: 0.3rem;
+    position: absolute;
+    outline: 2px solid #13688C;
+    top: 5%;
+    left: 10%;
+}
+
+.details-container{
+    width: 70%;
+    margin: 2rem auto 0;
+    padding-bottom: 4rem;
+    background-color: #373B69;
+    box-shadow: 2px 2px 20px #708ED2;
+}
+
+.details-container .top{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 2rem;
+    padding-top: 2rem;
+}
+
+.details-container .top .top1 p:first-child{
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.details-container .top .top1 p:last-child{
+    color: #83CFDF;
+    font-size: 0.8rem;
+}
+
+.details-container .body{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 2rem;
+    height: 20rem;
+}
+
+.details-container .body .space{
+    width: 10%;
+}
+
+.details-container .body .details{
+    width: 60%;
+}
+
+.details-container .body .details h3{
+    margin: 0 0 1rem;
+}
+
+.details-container .body .details .plot{
+    margin: 0 0 1rem;
+}
+
+.details-container .body .details .casts{
+    margin: 2rem 0 0;
+}
+
+.details-container .body .details .casts span{
+    color: #83CFDF;
+}
+
+.details-container .body .details .casts .actors span{
+    margin-right: 1.5rem;
+}
+.details-container .body .details .casts .writers span{
+    margin-right: 0.4rem;
+}
+.details-container .body .details .casts .director span{
+    margin-right: 0.6rem;
+}
+
+.details-container .body .details .bottom{
+    width: 70%;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 1050px){
+    .details-container .top .top1 p:first-child{
+        font-size: 1rem;
+    }
+    .space{
+        display: none;
+    }
+}
+
+
+@media (max-width: 790px){
+    /* details component styling */
+    .details-container .top .top1 p:last-child{
+        font-size: 0.6rem;
+    }
+    .details-container .body img{
+        height: 15rem;
+    }
+    .details-container .body .details h3{
+        margin: 0 0 0.5rem;
+    }
+    
+    .details-container .body .details .plot{
+        margin: 0 0 0.5rem;
+    }
+    
+    .details-container .body .details .casts{
+        margin: 1rem 0 0;
+    }
+    .details-container .body .details .bottom{
+        width: 100%;
+        flex-direction: column;
+    }
+    .movies{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .movieContain{
+        width: 300px;
+    }
+}
+
+@media (max-width: 450px){
+    .details-container{
+        width: 80%;
+        margin-bottom: 2rem;
+    }
+    .movieDetail .back-icon{
+        top: 6%;
+    }
+    .details-container .body{
+        flex-direction: column;
+        height: 100%;
+    }
+    .details-container .body .details{
+        margin-top: 1rem;
+        width: 100%;
+    }
+    .details-container .body .details .casts p{
+        margin: 0.5rem 0;
+    }
+
+    .movies{
+        grid-template-columns: 1fr;
+    }
+
+    .movieContain{
+        width: 280px;
+    }
+
+    .movie .movieHeading h3{
+        font-size: 1rem;
+    }
 }
