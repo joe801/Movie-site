@@ -247,3 +247,17 @@ body{
         font-size: 1rem;
     }
 }
+
+.noMovie{
+    text-align: center;
+    animation: show ease-in 2s;
+}
+
+@keyframes show {
+    0%{
+        color: transparent;
+    }
+    100%{
+        color: #EBE5E2;
+    }
+}
